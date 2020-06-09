@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Calculator from "./components/Calculator"
+import './App.css'
+
 class App extends Component {
   constructor(props) {
     super(props)
