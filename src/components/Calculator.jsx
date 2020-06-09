@@ -12,6 +12,7 @@ import axios from "axios"
 import {CSSTextField} from './InputField'
 import TextField from '@material-ui/core/TextField';
 import Paper from "@material-ui/core/Paper"
+import Grid from '@material-ui/core/Grid';
 
 const ValidationSchema = Yup.object().shape({
     // first_name: Yup.string()
@@ -139,7 +140,10 @@ saveAdress(adres){
 
     render() {
         return (
-          <div className="calculator_flex">
+          // <div>
+         <div className="calculator_flex">
+            <Grid container spacing={3} alignItems='center'>
+            <Grid item xs={4} spacing={3}> 
           <Paper elevation={3}>
             <div className="paper">
             <Formik
@@ -302,10 +306,15 @@ saveAdress(adres){
                   {this.state.errorMessage && <Typography>Message was't sent. Try again.</Typography>}
             </div>
           </Paper>
-          <Paper elevation={3} className="paper-right">
+                  </Grid>
+                  
+                  <Grid item xs={8}>
+          <Paper elevation={3} className="paper-right">HIIIIII
                     {/* {this.state.result==1 && <Succes></Succes>}
                     {this.state.result==2 && <Failure></Failure>} */}
           </Paper>
+          </Grid>
+          </Grid>
 
           </div>    
           );
