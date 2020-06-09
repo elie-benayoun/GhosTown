@@ -129,7 +129,7 @@ saveAdress(adres){
 
     render() {
         return (
-            <>
+            <div className="paper">
             <Formik
               initialValues={{ min_nights: "", price: "",adresslat:"",adresslong:"", neighbourhood_group: "", room_type: "",}}
                 validationSchema={ValidationSchema}
@@ -177,7 +177,7 @@ saveAdress(adres){
                     <div className="inputadress">
                         <input className="inputfield"
                             value={this.state.adress}
-                            placeholder="adress"
+                            placeholder="address"
                             onChange={(event)=>{this.searchAdress(event.target.value)}}
                             
                     />
@@ -254,7 +254,7 @@ saveAdress(adres){
                     
                   </Formik>
                   {this.state.errorMessage && <Typography>Message was't sent. Try again.</Typography>}
-            </>      
+            </div>      
           );
     }
 

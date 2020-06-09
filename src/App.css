@@ -1,5 +1,4 @@
 .App {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKtxtEzzs0CcAwVRgl8L0q9qLmHjs3PH1GQRZ3f-LFlXVeRmnR&usqp=CAU");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -29,31 +28,55 @@ body{
 
 
 .inputadress{
-  text-align: center;
+  text-align: left;
   position: relative;
   width: 100%;
 }
 
 .inputfield{
   font-size: 20px;
-  width: 100%;
-
+  width: 98%;
+  background: transparent;
+  border-bottom: 1px white solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
 }
 
+.inputfield:focus{
+  outline: none;
+  border-bottom: 2px white solid;
+}
 .inputitem{
-  width: 100%;
+  width: 98%;
   z-index: 1;
   position: absolute;
-  background-color: transparent;
-  color: black;
+  background-color: #424242 ;
+  color: white;
   overflow: auto;
-  font-size: 15px
+  font-size: 20px;
+  max-height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: roboto;
+
 }
 
 .adressitem{
+  background-color: #424242;
+  padding: 5px;
+  transition: background-color 0.5s;
+}
+
+.adressitem:hover{
+  background-color: #515151;
+}
+
+.paper{
   border-radius: 10px;
-  border: 1px black solid;
-  background-color: white;
+  padding: 10px;
+  background-color: rgb(93, 114, 124);
 }
 
 
