@@ -14,17 +14,17 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     select: {
         '&:before': {
-            borderColor: 'white',
+            borderColor: 'grey',
         },
         '&:focused': {
-            borderColor: 'white',
+            borderColor: 'black',
         },
         '&:after': {
-            borderColor: 'white',
+            borderColor: 'grey',
         }
     },
     icon: {
-        fill: '#ffffff',
+        fill: '#grey',
     },
   formControl: {
     margin: theme.spacing(1),
@@ -79,11 +79,6 @@ const names = [
 // }
 
 export default function MultipleSelect(props) {
-    const theme = createMuiTheme({
-        palette: {
-          type: 'dark',
-        },
-      });
   const classes = useStyles();
 //   const theme = useTheme();
 //   const [personName, setPersonName] = React.useState([]);
@@ -96,7 +91,7 @@ const { value, onChange, id, name, placeholder } = props
   return (
     <div>
       <FormControl className={classes.formControl}>
-      <ThemeProvider theme = {theme}>
+
   <InputLabel id="demo-mutiple-chip-label">{placeholder}</InputLabel>
         
         <Select
@@ -131,7 +126,6 @@ const { value, onChange, id, name, placeholder } = props
             </MenuItem>
           ))}
         </Select>
-        </ThemeProvider>
       </FormControl>
     </div>
   );

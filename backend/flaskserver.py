@@ -69,10 +69,11 @@ def login():
         result = jsonify({"result":"No results found"})
     return result
 
-@app.route("/verify")
-@jwt_required
-def verify():
-    return "good"
+@app.route("/calculator" , methods=["POST"])
+def prediction():
+    form=request.json
+    print(form)
+    return jsonify({"response":"ok"})
 
 if __name__ == '__main__':
     app.run(debug=True)

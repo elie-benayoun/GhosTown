@@ -7,16 +7,18 @@ export const CSSTextField = withStyles({
   root: {
     '& label.Mui-focused': {
       color: 'grey',
+      borderColor: 'grey'
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'grey',
+      borderColor: 'grey'
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'white',
+        borderColor: 'grey',
       },
       '&:hover fieldset': {
-        borderColor: 'white',
+        borderColor: 'grey',
         borderWidth: '2px'
       },
       '&.Mui-focused fieldset': {

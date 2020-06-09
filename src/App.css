@@ -16,7 +16,7 @@ body{
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color:white;
 }
 
 .logout {
@@ -37,25 +37,29 @@ body{
   font-size: 20px;
   width: 98%;
   background: transparent;
-  border-bottom: 1px white solid;
+  border-bottom: 1px #A2A2A2 solid;
   border-top: none;
   border-left: none;
   border-right: none;
-  color: white;
+  color: black;
 }
 
 .inputfield:focus{
   outline: none;
-  border-bottom: 2px white solid;
+  border-bottom: 2px black solid;
+}
+
+.inputfield::placeholder{
+  color: #A2A2A2;
 }
 .inputitem{
   width: 98%;
   z-index: 1;
   position: absolute;
-  background-color: #424242 ;
-  color: white;
+  background-color: white ;
+  color: black;
   overflow: auto;
-  font-size: 20px;
+  font-size: 16px;
   max-height: 200px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -64,19 +68,18 @@ body{
 }
 
 .adressitem{
-  background-color: #424242;
+  background-color: white;
   padding: 5px;
   transition: background-color 0.5s;
 }
 
 .adressitem:hover{
-  background-color: #515151;
+  background-color: #EBEBEB;
 }
 
 .paper{
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(93, 114, 124);
 }
 
 .authInput {

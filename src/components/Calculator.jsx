@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import Error from "./Error";
 import axios from "axios"
 import {CSSTextField} from './InputField'
+import TextField from '@material-ui/core/TextField';
+import Paper from "@material-ui/core/Paper"
 
 const ValidationSchema = Yup.object().shape({
     // first_name: Yup.string()
@@ -53,7 +55,7 @@ const styles = theme => ({
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
       width: "26ch",
-      color: "#000000"
+      color: "black"
     }
 }
 })
@@ -129,6 +131,7 @@ saveAdress(adres){
 
     render() {
         return (
+          <Paper elevation={3}>
             <div className="paper">
             <Formik
               initialValues={{ min_nights: "", price: "",adresslat:"",adresslong:"", neighbourhood_group: "", room_type: "",}}
@@ -157,6 +160,10 @@ saveAdress(adres){
                 console.log(a)
                 console.log(values)
                 this.setState({buttoncolor: 'primary'})
+                axios.post("http://localhost:5000/calculator" , values)
+                .then(res=>{
+                  console.log(res)
+                })
                 }}
               >
             
@@ -167,6 +174,7 @@ saveAdress(adres){
                 handleChange,
                 handleBlur,
                 handleSubmit,
+                resetForm,
                 isSubmitting,
               }) => (
             <form className={`${styles.root}`} autoComplete="off" onSubmit={handleSubmit}>
@@ -181,6 +189,7 @@ saveAdress(adres){
                             onChange={(event)=>{this.searchAdress(event.target.value)}}
                             
                     />
+                    <Paper elevation={3}>
                     <div className="inputitem">
                     {this.state.options.map(adress=>{
                         return(
@@ -193,23 +202,24 @@ saveAdress(adres){
                             </div>
                             )
                         })}
-                    </div>    
+                    </div> 
+                    </Paper>   
                     </div>
                 </>
                 <Error touched={touched.adresslat} message={errors.adresslat} />
 
 
-                <CSSTextField
+                <TextField
                     name="min_nights"
                     id="min_nights"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.min_nights}
-                    color={this.state.buttoncolor}
+                    // color={this.state.buttoncolor}
                     placeholder='minimum number of nights'
                   >
                     ), }} ><label htmlFor="contained-button-file"></label>
-                  </CSSTextField>
+                  </TextField>
                 <Error touched={touched.min_nights} message={errors.min_nights} />
 
                 <CSSTextField
@@ -249,12 +259,18 @@ saveAdress(adres){
                 <Button type="submit" variant="contained" color={this.state.buttoncolor} position="end" disabled={isSubmitting}>
                             Send
                         </Button>
+                <Button type="button" variant="contained" color="secondary" position="start" onClick={()=>{
+                  resetForm()
+                  this.setState({adress:""})}}>
+                            Clear
+                </Button>
             </form>
                   )}
                     
                   </Formik>
                   {this.state.errorMessage && <Typography>Message was't sent. Try again.</Typography>}
-            </div>      
+            </div>
+          </Paper>      
           );
     }
 
