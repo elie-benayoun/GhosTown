@@ -12,30 +12,38 @@ import axios from "axios"
 import {CSSTextField} from './InputField'
 
 const ValidationSchema = Yup.object().shape({
-    first_name: Yup.string()
-    .min(1, "Too Short!")
-    .max(50, "Too Long!")
+    // first_name: Yup.string()
+    // .min(1, "Too Short!")
+    // .max(50, "Too Long!")
+    // .required("Required"),
+
+    // last_name: Yup.string()
+    // .min(1, "Too Short!")
+    // .max(50, "Too Long!")
+    // .required("Required"),
+
+    neighbourhood_group: Yup.string()
     .required("Required"),
 
-    last_name: Yup.string()
-    .min(1, "Too Short!")
-    .max(50, "Too Long!")
+    room_type: Yup.string()
     .required("Required"),
 
-    existing_magic_skills: Yup.array()
-    .required("Required"),
-
-    desired_magic_skills: Yup.array()
-    .required("Required"),
-
-    interested_in_course: Yup.array()
-    .required("Required"),
+    // interested_in_course: Yup.array()
+    // .required("Required"),
 
     min_nights: Yup.number()
     .positive()
     .integer()
+    .typeError("must be a number")
     .min(1, "Invalid.")
-    .max(31, "Invalid.")
+    .max(365, "Invalid."),
+
+    price: Yup.number()
+    .positive()
+    .integer()
+    .typeError("must be a number")
+    .min(1, "Invalid.")
+    .max(15000, "Invalid.")
     
   });
   
@@ -127,14 +135,14 @@ saveAdress(adres){
                 validationSchema={ValidationSchema}
               validate={values => {
                 let errors = {};
-                 if (min_nights.length == 0) {
-                    errors.first_name = `Wrong Value`;
-                  } else if (values.last_name.length >= 50) {
-                        errors.last_name = `Max 50 characters`;
-                  }else if (values.adresslat.length==0){
-                    errors.adresslat = `need a value`;
-                  } else if (values.adresslong.length==0){
-                    errors.adresslong = `need a value`;
+                 if (values.min_nights.length == 0) {
+                    errors.min_nights = `Wrong Value`;
+                  }  if (values.price.length == 0) {
+                        errors.price = `Wrong Value`;
+                  } if (values.adresslat.length==0){
+                    errors.adresslat = `Wrong Value`;
+                  } if (values.adresslong.length==0){
+                    errors.adresslong = `Wrong Value`;
                   }
                 return errors;
               }}
@@ -169,6 +177,7 @@ saveAdress(adres){
                     <div className="inputadress">
                         <input className="inputfield"
                             value={this.state.adress}
+                            placeholder="adress"
                             onChange={(event)=>{this.searchAdress(event.target.value)}}
                             
                     />
@@ -201,7 +210,7 @@ saveAdress(adres){
                   >
                     ), }} ><label htmlFor="contained-button-file"></label>
                   </CSSTextField>
-                <Error touched={touched.first_name} message={errors.first_name} />
+                <Error touched={touched.min_nights} message={errors.min_nights} />
 
                 <CSSTextField
                     name="price"
@@ -214,7 +223,7 @@ saveAdress(adres){
                   >
                     ), }} ><label htmlFor="contained-button-file"></label>
                   </CSSTextField>
-                <Error touched={touched.last_name} message={errors.last_name} />
+                <Error touched={touched.price} message={errors.price} />
 
                     <MultipleSelect 
                             onChange={handleChange}
@@ -223,7 +232,7 @@ saveAdress(adres){
                             value={values.neighbourhood_group}
                             placeholder="neighbourhood group"
                     />
-                <Error touched={touched.existing_magic_skills} message={errors.existing_magic_skills} />
+                <Error touched={touched.neighbourhood_group} message={errors.neighbourhood_group} />
 
 
                 <MultipleSelect 
@@ -234,7 +243,7 @@ saveAdress(adres){
                             placeholder="room type"
                     />
 
-                <Error touched={touched.interested_in_course} message={errors.interested_in_course} />
+                <Error touched={touched.room_type} message={errors.room_type} />
 
 
                 <Button type="submit" variant="contained" color={this.state.buttoncolor} position="end" disabled={isSubmitting}>
