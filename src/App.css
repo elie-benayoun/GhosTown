@@ -28,6 +28,7 @@ body{
 
 
 .inputadress{
+  margin-top: 40px;
   text-align: left;
   position: relative;
   width: 100%;
@@ -79,7 +80,7 @@ body{
 
 .paper{
   border-radius: 10px;
-  padding: 10px;
+  padding: 30px;
 }
 
 .authInput {

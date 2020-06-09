@@ -209,7 +209,8 @@ saveAdress(adres){
                 <Error touched={touched.adresslat} message={errors.adresslat} />
 
 
-                <TextField
+                <CSSTextField
+                    style = {{width: 300, marginTop: 40}}
                     name="min_nights"
                     id="min_nights"
                     onChange={handleChange}
@@ -219,10 +220,11 @@ saveAdress(adres){
                     placeholder='minimum number of nights'
                   >
                     ), }} ><label htmlFor="contained-button-file"></label>
-                  </TextField>
+                  </CSSTextField>
                 <Error touched={touched.min_nights} message={errors.min_nights} />
 
                 <CSSTextField
+                    style = {{width: 300, marginTop: 40}}
                     name="price"
                     id="price"
                     onChange={handleChange}
