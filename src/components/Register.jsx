@@ -37,6 +37,7 @@ class Register extends Component {
 
     render () {
         return (
+            <div className="paper">
 
                         <form noValidate onSubmit={this.onSubmit}>
                             Sign up
@@ -86,6 +87,8 @@ class Register extends Component {
                             </button> */}
                             <Button variant="contained" color="primary" type="submit">Sign up</Button>
                         </form>
+            
+            </div>
 
         )
     }

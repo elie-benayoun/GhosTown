@@ -36,6 +36,7 @@ class Login extends Component {
 
     render () {
         return (
+            <div className="paper">
 
                         <form noValidate onSubmit={this.onSubmit}>
                             Log in
@@ -63,6 +64,7 @@ class Login extends Component {
                             </button> */}
                             <Button variant="contained" color="primary" type="submit">Log in</Button>
                         </form>
+            </div>
 
         )
     }
