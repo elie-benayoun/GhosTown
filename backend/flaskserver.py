@@ -11,15 +11,18 @@ from flask_jwt_extended import jwt_required
 from functools import wraps
 import pickle
 import numpy as np
-# FILENAME = 'model.bin'
+from sklearn.neighbors import KNeighborsClassifier
+from datalayer import Datalayer
+FILENAME = 'knn_base.pickle'
 
+datalayer=Datalayer()
 
 def randomize_classification():
     return np.random.randint(0, 2)
 
 
-# with open(FILENAME, 'rb') as f:
-#     model = pickle.load(f)
+with open(FILENAME, 'rb') as f:
+    model = pickle.load(f)
 
 rooms_dict = {
     'Entire home/apt': 0,
@@ -36,7 +39,7 @@ neighbourhood_group_dict = {
 }
 
 # these keys need to be in the same order of the features in each sample
-keys = ['min_nights', 'price', 'adresslat', 'adresslong', 'neighbourhood_group', 'room_type']
+keys = ["adresslong","adresslat","price","room_type","neighbourhood_group" , "min_nights" ,"availibility_days"]
 
 app = Flask(__name__)
 
@@ -100,7 +103,8 @@ def login():
 @app.route("/calculator" , methods=["POST"])
 def prediction():
     data_dict = request.json
-
+    print(data_dict)
+    datalayer.saveData(data_dict)
     X = []
     for key in keys:
         value = data_dict[key]
@@ -109,7 +113,7 @@ def prediction():
             value = rooms_dict[value]
 
         if key == 'neighbourhood_group':
-            value == neighbourhood_group_dict[value]
+            value = neighbourhood_group_dict[value]
 
         X.append(value)
 
