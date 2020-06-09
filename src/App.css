@@ -1,20 +1,16 @@
 .App {
-  text-align: center;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKtxtEzzs0CcAwVRgl8L0q9qLmHjs3PH1GQRZ3f-LFlXVeRmnR&usqp=CAU");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  margin:0;
+  padding: 0;
+  font-family: Roboto,"Arial"
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +20,42 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.logout {
+  color: grey;
+  font-size: 14px;
+  margin-left: 10px;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.inputadress{
+  text-align: center;
+  position: relative;
+  width: 100%;
 }
+
+.inputfield{
+  font-size: 20px;
+  width: 100%;
+
+}
+
+.inputitem{
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  background-color: transparent;
+  color: black;
+  overflow: auto;
+  font-size: 15px
+}
+
+.adressitem{
+  border-radius: 10px;
+  border: 1px black solid;
+  background-color: white;
+}
+
+
+
+
