@@ -33,6 +33,13 @@ const ValidationSchema = Yup.object().shape({
     // interested_in_course: Yup.array()
     // .required("Required"),
 
+    availibility_days: Yup.number()
+    .positive()
+    .integer()
+    .typeError("must be a number")
+    .min(1, "Invalid.")
+    .max(365, "Invalid."),
+
     min_nights: Yup.number()
     .positive()
     .integer()
@@ -134,7 +141,7 @@ saveAdress(adres){
           <Paper elevation={3}>
             <div className="paper">
             <Formik
-              initialValues={{ min_nights: "", price: "",adresslat:"",adresslong:"", neighbourhood_group: "", room_type: "",}}
+              initialValues={{ min_nights: "", availibility_days: "", price: "",adresslat:"",adresslong:"", neighbourhood_group: "", room_type: "",}}
                 validationSchema={ValidationSchema}
               validate={values => {
                 let errors = {};
@@ -210,7 +217,7 @@ saveAdress(adres){
 
 
                 <CSSTextField
-                    style = {{width: 300, marginTop: 40}}
+                    style = {{width: 310, marginTop: 30}}
                     name="min_nights"
                     id="min_nights"
                     onChange={handleChange}
@@ -224,7 +231,22 @@ saveAdress(adres){
                 <Error touched={touched.min_nights} message={errors.min_nights} />
 
                 <CSSTextField
-                    style = {{width: 300, marginTop: 40}}
+                    style = {{width: 310, marginTop: 30}}
+                    name="availibility_days"
+                    id="availibility_days"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.availibility_days}
+                    // color={this.state.buttoncolor}
+                    placeholder='yearly availability in days'
+                  >
+                    ), }} ><label htmlFor="contained-button-file"></label>
+                  </CSSTextField>
+                <Error touched={touched.availibility_days} message={errors.availibility_days} />
+
+
+                <CSSTextField
+                    style = {{width: 310, marginTop: 30}}
                     name="price"
                     id="price"
                     onChange={handleChange}
@@ -257,7 +279,8 @@ saveAdress(adres){
 
                 <Error touched={touched.room_type} message={errors.room_type} />
 
-
+                        <div className='button-wrapper'>
+                       
                 <Button type="submit" variant="contained" color={this.state.buttoncolor} position="end" disabled={isSubmitting}>
                             Send
                         </Button>
@@ -266,6 +289,7 @@ saveAdress(adres){
                   this.setState({adress:""})}}>
                             Clear
                 </Button>
+                </div>
             </form>
                   )}
                     
