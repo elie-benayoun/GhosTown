@@ -9,6 +9,34 @@ from flask_jwt_extended import JWTManager
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import jwt_required
 from functools import wraps
+import pickle
+import numpy as np
+# FILENAME = 'model.bin'
+
+
+def randomize_classification():
+    return np.random.randint(0, 2)
+
+
+# with open(FILENAME, 'rb') as f:
+#     model = pickle.load(f)
+
+rooms_dict = {
+    'Entire home/apt': 0,
+    'Private room': 1,
+    'Shared room': 2
+}
+
+neighbourhood_group_dict = {
+    'Brooklyn': 0,
+    'Manhattan': 1,
+    'Queens': 2,
+    'Staten Island': 3,
+    'Bronx': 4
+}
+
+# these keys need to be in the same order of the features in each sample
+keys = ['min_nights', 'price', 'adresslat', 'adresslong', 'neighbourhood_group', 'room_type']
 
 app = Flask(__name__)
 
@@ -71,44 +99,6 @@ def login():
 
 @app.route("/calculator" , methods=["POST"])
 def prediction():
-    form=request.json
-    print(form)
-    return jsonify({"response":"ok"})
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
-FILENAME = 'model.bin'
-
-
-def randomize_classification():
-    return np.random.randint(0, 2)
-
-
-with open(FILENAME, 'rb') as f:
-    model = pickle.load(f)
-
-rooms_dict = {
-    'Entire home/apt': 0,
-    'Private room': 1,
-    'Shared room': 2
-}
-
-neighbourhood_group_dict = {
-    'Brooklyn': 0,
-    'Manhattan': 1,
-    'Queens': 2,
-    'Staten Island': 3,
-    'Bronx': 4
-}
-
-# these keys need to be in the same order of the features in each sample
-keys = ['min_nights', 'price', 'adresslat', 'adresslong', 'neighbourhood_group', 'room_type']
-
-@app.route("/calculator", methods=["POST"])
-def prediction():
     data_dict = request.json
 
     X = []
@@ -121,10 +111,15 @@ def prediction():
         if key == 'neighbourhood_group':
             value == neighbourhood_group_dict[value]
 
-
         X.append(value)
 
     classification = randomize_classification()  # remove this line once line below is uncommented
     # prediction = model.predict(X)
 
-    return classification
+    return jsonify(classification)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
