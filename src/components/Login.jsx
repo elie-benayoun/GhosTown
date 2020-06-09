@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { login } from './UserFunctions'
+import Button from "@material-ui/core/Button";
+import '../App.css'
 
 class Login extends Component {
     constructor() {
@@ -27,44 +29,41 @@ class Login extends Component {
 
         login(user).then(res => {
             if (!res.error) {
-                this.props.history.push(`/calculator`)
+                this.props.history.push(`/`)
             }
         })
     }
 
     render () {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-6 mt-5 mx-auto">
+
                         <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                            <div className="form-group">
-                                <label htmlFor="email">Email Address</label>
+                            Log in
+                            <div>
+                        
                                 <input type="email"
-                                    className="form-control"
+                                    className="authInput"
                                     name="email"
                                     placeholder="Enter Email"
                                     value={this.state.email}
                                     onChange={this.onChange} />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="password">Password </label>
+                            <div>
+                             
                                 <input type="password"
-                                    className="form-control"
+                                    className="authInput"
                                     name="password"
                                     placeholder="Enter Password"
                                     value={this.state.password}
                                     onChange={this.onChange} />
                             </div>
 
-                            <button type="submit" className="btn btn-lg btn-primary btn-block">
+                            {/* <button type="submit" className="btn btn-lg btn-primary btn-block">
                                 Sign in
-                            </button>
+                            </button> */}
+                            <Button variant="contained" color="primary" type="submit">Log in</Button>
                         </form>
-                    </div>
-                </div>
-            </div>
+
         )
     }
 }

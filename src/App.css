@@ -56,6 +56,22 @@ body{
   background-color: white;
 }
 
+.authInput {
+  width: 40vw;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: large;
+}
 
-
+.authInput:focus {
+  border: 2px solid white;
+}
 

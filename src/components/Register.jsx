@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
+import Button from "@material-ui/core/Button";
 
 class Register extends Component {
     constructor() {
@@ -36,57 +37,69 @@ class Register extends Component {
 
     render () {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-6 mt-5 mx-auto">
+
                         <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Register</h1>
+                            Sign up
                             <div className="form-group">
-                                <label htmlFor="first_name">First Name</label>
+                                {/* <label htmlFor="first_name">First Name</label> */}
                                 <input type="text"
-                                    className="form-control"
+                                    // className="form-control"
+                                    className="authInput"
                                     name="first_name"
                                     placeholder="Enter First Name"
                                     value={this.state.first_name}
                                     onChange={this.onChange} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="last_name">Last Name</label>
+                                {/* <label htmlFor="last_name">Last Name</label> */}
                                 <input type="text"
-                                    className="form-control"
+                                    // className="form-control"
+                                    className="authInput"
                                     name="last_name"
                                     placeholder="Enter Last Name"
                                     value={this.state.last_name}
                                     onChange={this.onChange} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email">Email Address</label>
+                                {/* <label htmlFor="email">Email Address</label> */}
                                 <input type="email"
-                                    className="form-control"
+                                    // className="form-control"
+                                    className="authInput"
                                     name="email"
                                     placeholder="Enter Email"
                                     value={this.state.email}
                                     onChange={this.onChange} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password </label>
+                                {/* <label htmlFor="password">Password </label> */}
                                 <input type="password"
-                                    className="form-control"
+                                    // className="form-control"
+                                    className="authInput"
                                     name="password"
                                     placeholder="Enter Password"
                                     value={this.state.password}
                                     onChange={this.onChange} />
                             </div>
-
+{/* 
                             <button type="submit" className="btn btn-lg btn-primary btn-block">
                                 Register
-                            </button>
+                            </button> */}
+                            <Button variant="contained" color="primary" type="submit">Sign up</Button>
                         </form>
-                    </div>
-                </div>
-            </div>
+
         )
     }
 }
 
 export default Register
+
+
+// <div>
+// <h1>Sign up</h1>
+// <form onSubmit={handleSignUp}>
+//     <div><input className="authInput" name="name" type="name" placeholder="name" /></div>
+//     <div><input className="authInput" name="email" type="email" placeholder="Email" /></div>
+//     <div><input className="authInput" name="password" type="password" placeholder="Password" /></div>
+//     <Button variant="contained" color="primary" type="submit">Sign up</Button>
+// </form>
+// </div>
