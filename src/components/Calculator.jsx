@@ -82,7 +82,8 @@ class InputForm1 extends React.Component {
           errorMessage: false,
           options: [],
           adress:"",
-          adressData:{}
+          adressData:{},
+          result:3
         };
       }
 
@@ -138,6 +139,7 @@ saveAdress(adres){
 
     render() {
         return (
+          <div className="calculator_flex">
           <Paper elevation={3}>
             <div className="paper">
             <Formik
@@ -278,25 +280,34 @@ saveAdress(adres){
                     />
 
                 <Error touched={touched.room_type} message={errors.room_type} />
-
-                        <div className='button-wrapper'>
-                       
+                <div className='button-wrapper'>
+                       <div className="send-button">
                 <Button type="submit" variant="contained" color={this.state.buttoncolor} position="end" disabled={isSubmitting}>
                             Send
                         </Button>
+                        </div>
+                        <div className="clear-button">
                 <Button type="button" variant="contained" color="secondary" position="start" onClick={()=>{
                   resetForm()
                   this.setState({adress:""})}}>
                             Clear
                 </Button>
                 </div>
+                </div>
+            
             </form>
                   )}
                     
                   </Formik>
                   {this.state.errorMessage && <Typography>Message was't sent. Try again.</Typography>}
             </div>
-          </Paper>      
+          </Paper>
+          <Paper elevation={3} className="paper-right">
+                    {/* {this.state.result==1 && <Succes></Succes>}
+                    {this.state.result==2 && <Failure></Failure>} */}
+          </Paper>
+
+          </div>    
           );
     }
 

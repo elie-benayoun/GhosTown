@@ -122,3 +122,21 @@ body{
   padding-right: 40px;
   padding-bottom: 40px;
 }
+
+.button-wrapper{
+  display: flex;
+}
+
+.send-button{
+  flex-grow: 2;
+  justify-content: start;
+}
+
+.clear-button{
+  justify-content: end;
+}
+
+.calculator_flex{
+  display: flex;
+}
+

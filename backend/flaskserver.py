@@ -39,7 +39,7 @@ neighbourhood_group_dict = {
 }
 
 # these keys need to be in the same order of the features in each sample
-keys = ["adresslong","adresslat","price","room_type","neighbourhood_group" , "min_nights" ,"availibility_days"]
+keys = ["adresslong","adresslat","price","reviews_per_month","room_type","neighbourhood_group" , "min_nights" ,"availibility_days"]
 
 app = Flask(__name__)
 
@@ -103,6 +103,7 @@ def login():
 @app.route("/calculator" , methods=["POST"])
 def prediction():
     data_dict = request.json
+    data_dict["reviews_per_month"]=0.75
     print(data_dict)
     datalayer.saveData(data_dict)
     X = []
@@ -114,13 +115,14 @@ def prediction():
 
         if key == 'neighbourhood_group':
             value = neighbourhood_group_dict[value]
+        if key=="reviews_per_month":
+            value= 0.75
+        X.append(float(value))
+    print(X)
+    # classification = randomize_classification()  # remove this line once line below is uncommented
+    prediction = model.predict([X])
 
-        X.append(value)
-
-    classification = randomize_classification()  # remove this line once line below is uncommented
-    # prediction = model.predict(X)
-
-    return jsonify(classification)
+    return jsonify(prediction)
 
 if __name__ == '__main__':
     app.run(debug=True)
