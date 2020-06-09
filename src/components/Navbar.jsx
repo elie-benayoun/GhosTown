@@ -120,7 +120,7 @@ class Navbar extends React.Component {
               </Button>
               <Button
                 color="inherit"
-                component={Link} to="/calculator"
+                component={Link} to="/landing"
                 className={[classes.buttonFontSize, classes.loginButton]}
               >
                 Calculator

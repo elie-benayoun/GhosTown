@@ -229,7 +229,7 @@ saveAdress(adres){
                     onBlur={handleBlur}
                     value={values.price}
                     color={this.state.buttoncolor}
-                    placeholder='price by night'
+                    placeholder='price per night'
                   >
                     ), }} ><label htmlFor="contained-button-file"></label>
                   </CSSTextField>
@@ -240,7 +240,7 @@ saveAdress(adres){
                             id="neighbourhood_group"
                             name='neighbourhood_group'
                             value={values.neighbourhood_group}
-                            placeholder="neighbourhood group"
+                            placeholder="neighbourhood"
                     />
                 <Error touched={touched.neighbourhood_group} message={errors.neighbourhood_group} />
 

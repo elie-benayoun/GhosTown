@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Calculator from "./components/Calculator"
+import Landing from "./components/landing"
 import './App.css'
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
         <Route path="/login" component={Login}  />
         <Route path="/register" component={Register} />
         <Route path="/calculator" component={Calculator}/>
+        <Route path="/landing" component={Landing}/>
       </Switch>
       </header>
       </div>
