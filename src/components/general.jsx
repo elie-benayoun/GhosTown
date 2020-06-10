@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
+import MediaCard from "./cards"
 
 class general extends Component {
     constructor(props) {
@@ -13,12 +14,36 @@ class general extends Component {
 
     render() {
         return (
-            <div>
-                Some General informations About the situation of AirBnb in New York
-                       <Paper elevation={3}>
-                            <img src="./pictures/prices.jpeg" alt="prices"/>
-                            <div>The average nightly price for an Airbnb listing in NY went down by 3%, from 152$ to 147$. This is the result of the two forces: less listings in the market (lower supply) and less people using AirBNB (less demend)</div>
-                       </Paper>
+            <div className="main-general">
+                <div>
+                    Some General informations About the situation of AirBnb in New York
+                </div>
+                <div className="pictures_container">
+                    <div className="upper_part">
+                            <MediaCard image="./pictures/prices.jpeg" title="" description="The average nightly price for an Airbnb listing in NY went down by 3%, from 152$ to 147$. This is the result of the two forces: less listings in the market (lower supply) and less people using AirBNB (less demend)"/>
+                            <MediaCard image="./pictures/market.jpeg" title="" description="The number of total stayings went down in the entire market, as proxied by the number of reviews for each number of listings"/>
+                            <MediaCard image="./pictures/guest.jpeg" title="" description="The number of days the AirBNB listings were opened for guests went down to zero for many apartments, and went up to ~100, ~200 and 365 days for some apartments. This suggests the market shifted to more long term stayings."/>
+                    </div>
+                    <div className="down_part">
+                        <Grid container spacing={3}>
+                            <Grid xs={5}>
+                                <Paper elevation={3} className="paper_picture">
+                                <div>The apratments that survived increased their availability, minimum number of nights, and price (by 1$). Their overall availability is quite high (102 days out of 365), the owners have 4 listings, and their price is close to the average price (147$ per night) and they have just about 1 review in a month)</div>
+                                    <img src="./pictures/middle_user.jpeg" alt="middle_user"/>
+                                </Paper>
+                            </Grid>
+                            <Grid xs={2}>
+
+                            </Grid>
+                            <Grid xs={5}>
+                                <Paper elevation={3} className="paper_picture">
+                                    <div>Here is an exemple of a specific AirBnb appartment who survive from coronna</div>
+                                    <img src="./pictures/user_specific.jpeg" alt="user_specific"/>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                    </div>
+                </div>
             </div>
         )
     }
