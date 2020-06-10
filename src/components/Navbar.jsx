@@ -104,17 +104,17 @@ class Navbar extends React.Component {
               <Grid className={classes.grow}>
                 <Button className={[classes.mainLogo]}>
                   <Avatar
-                    src="./pictures/hotel.png"
+                    src="./pictures/ghost.png"
                     className={classes.avatar}
                   />
                 </Button>
               </Grid>
-              <Button component={Link} to="/login" color="inherit" className={classes.buttonFontSize}>
+              {/* <Button component={Link} to="/login" color="inherit" className={classes.buttonFontSize}>
                 Login
               </Button>
               <Button component={Link} to="/register" color="inherit" className={classes.buttonFontSize}>
                 Register
-              </Button>
+              </Button> */}
               <Button component={Link} to="/general-info" color="inherit" className={classes.buttonFontSize}>
                 General Info
               </Button>
@@ -125,7 +125,7 @@ class Navbar extends React.Component {
               >
                 Calculator
               </Button>
-              <Logout />
+              {/* <Logout /> */}
             </Toolbar>
           </Grid>
         </AppBar>
