@@ -197,6 +197,10 @@ body{
   overflow-x: hidden;
 }
 
+.success_center{
+  
+}
+
 @media only screen and (max-width: 600px){
   .upper_part{
     flex-direction: column;

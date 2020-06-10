@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     root: {
       minWidth: 275,
       height: '100%',
-      marginLeft: '40px'
+      marginLeft: '40px',
     },
     bullet: {
       display: 'inline-block',
@@ -32,17 +32,19 @@ export function Success(props) {
     return (
         <div>
             <Paper variant="outlined" className={classes.root}>
-            <Grid container alignItems='center' justify='center'>
-                <Grid xs={12}>
-                    <div style={{textAlign: 'center'}}>
-                    <div>According to Our prediction  your AirBnb is safe</div>
-                    <ThumbUpIcon style={{ fontSize: 150, color: "limegreen" }}/>
-                    <div>Your chances to succeed is : {(props.data[0][1]*100).toString()}</div>
-                    </div>
-                    </Grid>
-                    
-                {/* <Grid xs={6}>According to Our prediction  your AirBnb is safe</Grid> */}
-            </Grid>
+            <div className="succes_center">
+                <Grid container alignItems='center' justify='center'>
+                    <Grid xs={12}>
+                        <div style={{textAlign: 'center'}}>
+                        <div>According to Our prediction  your AirBnb is safe</div>
+                        <ThumbUpIcon style={{ fontSize: 150, color: "limegreen" }}/>
+                        <div>Your chances to succeed is : {(props.data[0][1]*100).toString()}</div>
+                        </div>
+                        </Grid>
+                        
+                    {/* <Grid xs={6}>According to Our prediction  your AirBnb is safe</Grid> */}
+                </Grid>
+            </div>
             </Paper>
         </div>
     )
