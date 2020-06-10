@@ -10,6 +10,7 @@ import Login from "./components/Login"
 import Register from "./components/Register"
 import Calculator from "./components/Calculator"
 import Landing from "./components/landing"
+import General from "./components/general"
 import './App.css'
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
         <Route path="/register" component={Register} />
         <Route path="/calculator" component={Calculator}/>
         <Route path="/landing" component={Landing}/>
+        <Route path="/general-info" component={General}/>
       </Switch>
       </header>
       </div>

@@ -41,7 +41,7 @@ neighbourhood_group_dict = {
 }
 
 # these keys need to be in the same order of the features in each sample
-keys = ["adresslong","adresslat","price","room_type","neighbourhood_group" , "min_nights" ,"availibility_days"]
+keys = ["adresslong","adresslat","price", "min_nights","availibility_days","neighbourhood_group","room_type"]
 
 app = Flask(__name__)
 

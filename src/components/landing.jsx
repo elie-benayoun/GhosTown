@@ -11,10 +11,10 @@ function landing() {
         <div className="presentation">
             <div className="main-text">
                 <div className="title">
-                    Lorem Ipsum
+                GhosTown
                 </div>
                 <div className="text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident temporibus necessitatibus expedita cupiditate. Mollitia, temporibus hic totam ullam labore odit sint nostrum consectetur quasi, velit qui vero! Velit, provident autem.
+                Helping New-Yorkers assess post-corona shared apartment risks and opportunities with AI driven technology.
                 </div>
             </div>
         </div>
