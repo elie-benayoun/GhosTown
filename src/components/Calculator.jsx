@@ -15,6 +15,7 @@ import Paper from "@material-ui/core/Paper"
 import Grid from '@material-ui/core/Grid';
 import {Success} from "./success"
 import {Fail} from "./success"
+import {Default} from "./success"
 
 const ValidationSchema = Yup.object().shape({
     // first_name: Yup.string()
@@ -69,6 +70,24 @@ const styles = theme => ({
     }
 }
 })
+
+// const useStyles = makeStyles({
+//   root: {
+//     minWidth: 275,
+//     background: "green",
+//   },
+//   bullet: {
+//     display: 'inline-block',
+//     margin: '0 2px',
+//     transform: 'scale(0.8)',
+//   },
+//   title: {
+//     fontSize: 14,
+//   },
+//   pos: {
+//     marginBottom: 12,
+//   },
+// });
 
 
 class InputForm1 extends React.Component {
@@ -145,8 +164,8 @@ saveAdress(adres){
         return (
           // <div>
          <div className="calculator_flex">
-            <Grid container spacing={3}>
-            <Grid item xs={8} sm={4} spacing={3}> 
+            {/* <Grid container spacing={3}>
+            <Grid item xs={8} sm={4} spacing={3}>  */}
           <Paper elevation={3}>
             <div className="paper">
             <Formik
@@ -310,16 +329,16 @@ saveAdress(adres){
                   {this.state.errorMessage && <Typography>Message was't sent. Try again.</Typography>}
             </div>
           </Paper>
-                  </Grid>
+                  {/* </Grid>
                   
-                  <Grid item xs={6} sm={8} >
+                  <Grid item xs={6} sm={8} > */}
 
                     {this.state.result===1 && <Success data={this.state.resultData}></Success>}
                     {this.state.result===0 && <Fail data={this.state.resultData}></Fail>}
-                    {this.state.result===2 && <div>Hi! Here is the instruction</div>}
-
+                    {this.state.result===2 && <Default />}
+{/* 
           </Grid>
-          </Grid>
+          </Grid> */}
 
           </div>    
           );
