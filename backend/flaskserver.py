@@ -9,11 +9,13 @@ from flask_jwt_extended import JWTManager
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import jwt_required
 from functools import wraps
+import sklearn
 import pickle
+import shap  # package used to calculate Shap values
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from datalayer import Datalayer
-FILENAME = 'knn_base.pickle'
+FILENAME = 'rfc_base_label.pickle'
 
 datalayer=Datalayer()
 
@@ -39,7 +41,7 @@ neighbourhood_group_dict = {
 }
 
 # these keys need to be in the same order of the features in each sample
-keys = ["adresslong","adresslat","price","reviews_per_month","room_type","neighbourhood_group" , "min_nights" ,"availibility_days"]
+keys = ["adresslong","adresslat","price","room_type","neighbourhood_group" , "min_nights" ,"availibility_days"]
 
 app = Flask(__name__)
 
@@ -115,17 +117,29 @@ def prediction():
 
         if key == 'neighbourhood_group':
             value = neighbourhood_group_dict[value]
-        if key=="reviews_per_month":
-            value= 0.75
         X.append(float(value))
     print(X)
     # classification = randomize_classification()  # remove this line once line below is uncommented
     prediction = model.predict([X])
-
-    return jsonify(prediction)
+    predict_proba = model.predict_proba([X])
+    # Create object that can calculate shap values
+    # explainer = shap.TreeExplainer(model)
+    # # Calculate Shap values
+    # shap_values = explainer.shap_values(prediction)
+    # shap.initjs()
+    # shap.force_plot(explainer.expected_value[1], shap_values[1], prediction)
+    prediction=prediction.tolist()
+    predict_proba=predict_proba.tolist()
+    return app.response_class(response=json.dumps([predict_proba,prediction]),
+                              status=200,
+                              mimetype="application/json")
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
 
 
 

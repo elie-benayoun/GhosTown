@@ -28,6 +28,7 @@ body{
 
 
 .inputadress{
+  font-family: Roboto,"Arial";
   margin-top: 40px;
   text-align: left;
   position: relative;
@@ -35,8 +36,9 @@ body{
 }
 
 .inputfield{
-  font-size: 20px;
+  font-size: 16px;
   width: 305px;
+  font-family: Roboto,"Arial";
   background: transparent;
   border-bottom: 1px #A2A2A2 solid;
   border-top: none;
@@ -80,12 +82,12 @@ body{
 
 .paper{
   border-radius: 10px;
-  padding: 30px 80px;
+  padding: 30px 70px;
 }
 
 .authInput {
   width: 40vw;
-  padding: 12px 20px;
+  padding: 12px 30px;
   margin: 8px 0;
   box-sizing: border-box;
   border: 1px solid white;
@@ -110,6 +112,7 @@ body{
   padding-top: 7%;
   margin: 20px;
   font-family: 'Montserrat', sans-serif;}
+  
 
 .title{
   font-size: 40px;
@@ -141,3 +144,14 @@ body{
   margin: 30px;
 }
 
+.form-message {
+  font-size: 14px;
+}
+
+.invalid {
+  color: #f50057
+}
+
+.valid {
+  color: #3f51b5
+}

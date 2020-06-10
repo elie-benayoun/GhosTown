@@ -13,6 +13,8 @@ import {CSSTextField} from './InputField'
 import TextField from '@material-ui/core/TextField';
 import Paper from "@material-ui/core/Paper"
 import Grid from '@material-ui/core/Grid';
+import {Success} from "./success"
+import {Fail} from "./success"
 
 const ValidationSchema = Yup.object().shape({
     // first_name: Yup.string()
@@ -84,7 +86,8 @@ class InputForm1 extends React.Component {
           options: [],
           adress:"",
           adressData:{},
-          result:3
+          result:2,
+          resultData:[]
         };
       }
 
@@ -142,8 +145,8 @@ saveAdress(adres){
         return (
           // <div>
          <div className="calculator_flex">
-            <Grid container spacing={3} alignItems='center'>
-            <Grid item xs={4} spacing={3}> 
+            <Grid container spacing={3}>
+            <Grid item xs={8} sm={4} spacing={3}> 
           <Paper elevation={3}>
             <div className="paper">
             <Formik
@@ -167,7 +170,7 @@ saveAdress(adres){
                 this.setState({errorMessage : false})
                 this.setState({adress:""})
                 // const datetime = this.getCurrentDate()
-                resetForm();
+                // resetForm();
                 // addStudent(values)
                 let a = values.toString()
                 console.log(a)
@@ -176,6 +179,7 @@ saveAdress(adres){
                 axios.post("http://localhost:5000/calculator" , values)
                 .then(res=>{
                   console.log(res)
+                  this.setState({result:res.data[1][0] , resultData:res.data[0]})
                 })
                 }}
               >
@@ -190,7 +194,7 @@ saveAdress(adres){
                 resetForm,
                 isSubmitting,
               }) => (
-            <form className={`${styles.root}`} autoComplete="off" onSubmit={handleSubmit}>
+            <form className={`${styles.root}`} style={{ color: 'red' }} autoComplete="off" onSubmit={handleSubmit}>
 
 
 
@@ -234,7 +238,7 @@ saveAdress(adres){
                   >
                     ), }} ><label htmlFor="contained-button-file"></label>
                   </CSSTextField>
-                <Error touched={touched.min_nights} message={errors.min_nights} />
+                <Error style={{ color: "red" }} touched={touched.min_nights} message={errors.min_nights} />
 
                 <CSSTextField
                     style = {{width: 310, marginTop: 30}}
@@ -308,11 +312,12 @@ saveAdress(adres){
           </Paper>
                   </Grid>
                   
-                  <Grid item xs={8}>
-          <Paper elevation={3} className="paper-right">HIIIIII
-                    {/* {this.state.result==1 && <Succes></Succes>}
-                    {this.state.result==2 && <Failure></Failure>} */}
-          </Paper>
+                  <Grid item xs={6} sm={8} >
+
+                    {this.state.result===1 && <Success data={this.state.resultData}></Success>}
+                    {this.state.result===0 && <Fail data={this.state.resultData}></Fail>}
+                    {this.state.result===2 && <div>Hi! Here is the instruction</div>}
+
           </Grid>
           </Grid>
 
