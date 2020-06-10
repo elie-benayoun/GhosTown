@@ -19,6 +19,16 @@ body{
 
 }
 
+.landing-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+
+}
+
 .logout {
   color: grey;
   font-size: 14px;
@@ -108,6 +118,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: './pictures/NY.jpeg';
   background-color: black;
   color: white;
   border-radius: 15px;

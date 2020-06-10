@@ -8,6 +8,7 @@ import {
 function landing() {
     return (
         <>
+        <div className='landing-header'>
         <div className="presentation">
             <div className="main-text">
                 <div className="title">
@@ -19,6 +20,7 @@ function landing() {
             </div>
         </div>
         <Button  component={Link} to="/Calculator" type="button" variant="contained" color="secondary">Test Me</Button>
+        </div>
         </>
     )
 }
