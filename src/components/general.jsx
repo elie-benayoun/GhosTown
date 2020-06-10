@@ -24,25 +24,6 @@ class general extends Component {
                             <MediaCard image="./pictures/market.jpeg" title="" description="The number of total stayings went down in the entire market, as proxied by the number of reviews for each number of listings"/>
                             <MediaCard image="./pictures/guest.jpeg" title="" description="The number of days the AirBNB listings were opened for guests went down to zero for many apartments, and went up to ~100, ~200 and 365 days for some apartments. This suggests the market shifted to more long term stayings."/>
                     </div>
-                    <div className="down_part">
-                        <Grid container spacing={3}>
-                            <Grid xs={5}>
-                                <Paper elevation={3} className="paper_picture">
-                                <div>The apratments that survived increased their availability, minimum number of nights, and price (by 1$). Their overall availability is quite high (102 days out of 365), the owners have 4 listings, and their price is close to the average price (147$ per night) and they have just about 1 review in a month)</div>
-                                    <img src="./pictures/middle_user.jpeg" alt="middle_user"/>
-                                </Paper>
-                            </Grid>
-                            <Grid xs={2}>
-
-                            </Grid>
-                            <Grid xs={5}>
-                                <Paper elevation={3} className="paper_picture">
-                                    <div>Here is an exemple of a specific AirBnb appartment who survive from coronna</div>
-                                    <img src="./pictures/user_specific.jpeg" alt="user_specific"/>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </div>
                 </div>
             </div>
         )

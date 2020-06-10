@@ -32,13 +32,13 @@ export function Success(props) {
     return (
         <div>
             <Paper variant="outlined" className={classes.root}>
-            <div className="succes_center">
+            <div className="success_center">
                 <Grid container alignItems='center' justify='center'>
                     <Grid xs={12}>
                         <div style={{textAlign: 'center'}}>
-                        <div>According to Our prediction  your AirBnb is safe</div>
+                        <div>According to our prediction  your AirBnb is safe</div>
                         <ThumbUpIcon style={{ fontSize: 150, color: "limegreen" }}/>
-                        <div>Your chances to succeed is : {(props.data[0][1]*100).toString()}</div>
+                        <div>Your chance to succeed is : <span style={{color:"limegreen"}}>{(props.data[0][1]*100).toString().substring(0,4)} %</span></div>
                         </div>
                         </Grid>
                         
@@ -55,18 +55,20 @@ export function Fail(props) {
     const classes = useStyles()
     return (
         <div>
-            <Paper variant="outlined">
-            <Grid container alignItems='center' justify='center'  className={classes.root}>
-                <Grid xs={12}>
-                    <div style={{textAlign: 'center'}}>
-                    <div>According to Our prediction  your AirBnb is in a bad situation</div>
-                    <ThumbDownIcon style={{ fontSize: 150, color: "#f50057" }}/>
-                    <div>Your chances to succeed are : {(props.data[0][1]*100).toString()} %</div>
-                    </div>
+            <Paper variant="outlined" className={classes.root}>
+                <div className="success_center">
+                    <Grid container alignItems='center' justify='center'  className={classes.root}>
+                        <Grid xs={12}>
+                            <div style={{textAlign: 'center'}}>
+                            <div>According to our prediction  your AirBnb is in a bad situation</div>
+                            <ThumbDownIcon style={{ fontSize: 150, color: "#f50057" }}/>
+                            <div>Your chance to succeed is : <span style={{color:"#f50057"}}>{(props.data[0][1]*100).toString().substring(0,4)} % </span></div>
+                            </div>
+                            </Grid>
+                            
+                        {/* <Grid xs={6}>According to Our prediction  your AirBnb is safe</Grid> */}
                     </Grid>
-                    
-                {/* <Grid xs={6}>According to Our prediction  your AirBnb is safe</Grid> */}
-            </Grid>
+                </div>
             </Paper>
         </div>
     )

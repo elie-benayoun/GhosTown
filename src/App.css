@@ -197,10 +197,7 @@ body{
   justify-content: space-evenly;
 }
 
-.down_part{
-  margin: 30px;
-  text-align: center;
-}
+
 
 .paper_picture{
   height: 50%;
@@ -209,7 +206,9 @@ body{
 }
 
 .success_center{
-  
+  margin: auto;
+  margin-top: 25%;
+  width: 47%;
 }
 
 @media only screen and (max-width: 600px){
