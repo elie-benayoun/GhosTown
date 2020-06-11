@@ -1,6 +1,7 @@
 GhosTown   (New-York AirBNB) 
 
-Helping New-Yorkers assess post-corona shared apartment risks and opportunities
+Helping New-Yorkers assess post-corona shared apartment risks and opportunities.
+
 POC presentation:
 https://docs.google.com/presentation/d/1gZZ8bUD4PtitwTTZH13XTePzc89rIMaw-3nbN2OjXL8/edit?usp=sharing
 
