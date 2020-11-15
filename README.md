@@ -2,6 +2,11 @@ GhosTown   (New-York AirBNB)
 
 Helping New-Yorkers assess post-corona shared apartment risks and opportunities.
 
+![alt text](https://github.com/elie-benayoun/GhosTown/blob/master/examples/1.JPG)
+![alt text](https://github.com/elie-benayoun/GhosTown/blob/master/examples/2.JPG)
+![alt text](https://github.com/elie-benayoun/GhosTown/blob/master/examples/3.JPG)
+![alt text](https://github.com/elie-benayoun/GhosTown/blob/master/examples/4.JPG)
+
 POC presentation:
 https://docs.google.com/presentation/d/1gZZ8bUD4PtitwTTZH13XTePzc89rIMaw-3nbN2OjXL8/edit?usp=sharing
 
