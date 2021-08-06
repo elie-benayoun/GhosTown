@@ -12,6 +12,10 @@ https://docs.google.com/presentation/d/1gZZ8bUD4PtitwTTZH13XTePzc89rIMaw-3nbN2Oj
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Data research and analysis
+
+Please refer to [this notebook](https://github.com/elie-benayoun/GhosTown/blob/77bcde3f9b8279087fd3aa05041f3a984494b91b/Dor_Hotel_Corona_analysis.ipynb).
+
 ## Available Scripts
 
 In the project directory, you can run:
